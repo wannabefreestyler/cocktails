@@ -27,7 +27,7 @@ public class CocktailService {
     private final CocktailRepository cocktailRepository;
     private final Cache<String, CocktailDTO> cocktailCache;
     private static final String DRINKS_STRING = "drinks";
-    private static final String Cocktail_NOT_FOUND_STRING = "такого коктейля нет ;(";
+    private static final String COCKTAIL_NOT_FOUND_STRING = "такого коктейля нет ;(";
 
     @Autowired
     public CocktailService(ObjectMapper objectMapper, CocktailRepository cocktailRepository, Cache<String, CocktailDTO> cocktailCache) {
@@ -49,7 +49,7 @@ public class CocktailService {
         } else {
             Cocktail cocktail = cocktailRepository.findByName(name);
             if (cocktail == null) {
-                throw new CocktailNotFoundException(Cocktail_NOT_FOUND_STRING);
+                throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
             }
             CocktailDTO cocktailDTO = CocktailDTO.toModel(cocktail);
             cocktailCache.put(name, cocktailDTO);
@@ -64,7 +64,7 @@ public class CocktailService {
         } else {
             List<Cocktail> cocktails = cocktailRepository.findCocktailsByIngredientList_Id(ingredientId);
             if (cocktails.isEmpty()) {
-                throw new CocktailNotFoundException(Cocktail_NOT_FOUND_STRING);
+                throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
             }
             List<CocktailDTO> cocktailDTOs = cocktails.stream().map(CocktailDTO::toModel).toList();
             cocktailCache.putList(cacheKey, cocktailDTOs);
@@ -95,7 +95,7 @@ public class CocktailService {
                 }
                 return cocktailDTOS;
             } else {
-                throw new CocktailNotFoundException(Cocktail_NOT_FOUND_STRING);
+                throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
             }
         }
     }
@@ -103,7 +103,7 @@ public class CocktailService {
     public void updateCocktail(String name, Cocktail cocktail) throws CocktailNotFoundException {
         Cocktail cocktailEntity = cocktailRepository.findByName(name);
         if (cocktailEntity == null) {
-            throw new CocktailNotFoundException(Cocktail_NOT_FOUND_STRING);
+            throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
         }
         cocktailEntity.setName(cocktail.getName());
         cocktailEntity.setCountry(cocktail.getCountry());
@@ -117,7 +117,7 @@ public class CocktailService {
         if (cocktail != null) {
             cocktailRepository.deleteById(id);
         } else {
-            throw new CocktailNotFoundException(Cocktail_NOT_FOUND_STRING);
+            throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
         }
     }
 }
