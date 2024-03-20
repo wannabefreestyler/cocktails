@@ -8,7 +8,7 @@ import java.util.List;
 public class CocktailDTO {
     private String name;
     private String category;
-    private String country;
+    private String tag;
     private String instruction;
     private List<ImageDTO> imagesList = new ArrayList<>();
     private List<IngredientDTO> ingredientsList = new ArrayList<>();
@@ -17,7 +17,7 @@ public class CocktailDTO {
         CocktailDTO model = new CocktailDTO();
 
         model.setName(entity.getName());
-        model.setCountry(entity.getCountry());
+        model.setTag(entity.getTag());
         model.setCategory(entity.getCategory());
         model.setInstruction(entity.getInstruction());
         if(model.getImagesList() != null)
@@ -48,12 +48,12 @@ public class CocktailDTO {
         this.category = category;
     }
 
-    public String getCountry() {
-        return country;
+    public String getTag() {
+        return tag;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public String getInstruction() {

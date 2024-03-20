@@ -30,7 +30,7 @@ public class CocktailController {
         } catch (CocktailAlreadyExistException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(ERROR_MESSAGE);
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ public class CocktailController {
     public ResponseEntity<?> updateCocktail(@RequestParam String name, @RequestBody Cocktail updatedCocktail) {
         try {
             cocktailService.updateCocktail(name, updatedCocktail);
-            return ResponseEntity.ok("Блюдо было успешно изменено");
+            return ResponseEntity.ok("Коктейль был изменён");
         } catch (CocktailNotFoundException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {

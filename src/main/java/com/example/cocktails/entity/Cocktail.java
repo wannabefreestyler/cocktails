@@ -14,7 +14,7 @@ public class Cocktail {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String country;
+    private String tag;
     private String category;
     private String instruction;
 
@@ -27,13 +27,13 @@ public class Cocktail {
             inverseJoinColumns = @JoinColumn(name = "ingredientId"))
     private List<Ingredient> ingredientList = new ArrayList<>();
 
-    public Cocktail() {
+    public Cocktail() { 
         // No initialization logic needed for this constructor
     }
 
     public Cocktail(JsonNode jsonNode) {
         this.name = jsonNode.get("strDrink").asText();
-        this.country = jsonNode.get("strTags").asText();
+        this.tag = jsonNode.get("strTags").asText();
         this.category = jsonNode.get("strAlcoholic").asText();
         this.instruction = jsonNode.get("strInstructions").asText();
     }
@@ -54,12 +54,12 @@ public class Cocktail {
         this.name = name;
     }
 
-    public String getCountry() {
-        return country;
+    public String getTag() {
+        return tag;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public String getCategory() {

@@ -106,7 +106,7 @@ public class CocktailService {
             throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
         }
         cocktailEntity.setName(cocktail.getName());
-        cocktailEntity.setCountry(cocktail.getCountry());
+        cocktailEntity.setTag(cocktail.getTag());
         cocktailEntity.setCategory(cocktail.getCategory());
         cocktailEntity.setInstruction(cocktail.getInstruction());
         cocktailRepository.save(cocktailEntity);
