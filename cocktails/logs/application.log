@@ -1,0 +1,102 @@
+2024-04-29 00:08:24,588 ERROR - 500 Internal Server Error - JSON parse error: Cannot deserialize value of type `java.util.ArrayList<com.example.cocktails.entity.Cocktail>` from Object value (token `JsonToken.START_OBJECT`)
+2024-04-29 00:08:44,904 INFO  - cocktail bulk post запрос был вызван
+2024-04-29 00:08:45,059 INFO  - Коктейли были успешно добавлены
+2024-04-29 01:59:03,381 ERROR - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    com.example.cocktails.config.SwaggerConfiguration.api(SwaggerConfiguration.java:26)
+
+The following method did not exist:
+
+    'com.google.common.base.Predicate springfox.documentation.builders.RequestHandlerSelectors.basePackage(java.lang.String)'
+
+The calling method's class, com.example.cocktails.config.SwaggerConfiguration, was loaded from the following location:
+
+    file:/E:/cocktails/build/classes/java/main/com/example/cocktails/config/SwaggerConfiguration.class
+
+The called method's class, springfox.documentation.builders.RequestHandlerSelectors, is available from the following locations:
+
+    jar:file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/io.springfox/springfox-core/3.0.0/7c3367ce577c8acd9bf64c74488c9269253516c9/springfox-core-3.0.0.jar!/springfox/documentation/builders/RequestHandlerSelectors.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    springfox.documentation.builders.RequestHandlerSelectors: file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/io.springfox/springfox-core/3.0.0/7c3367ce577c8acd9bf64c74488c9269253516c9/springfox-core-3.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes com.example.cocktails.config.SwaggerConfiguration and springfox.documentation.builders.RequestHandlerSelectors
+
+2024-04-29 02:00:14,214 ERROR - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    com.example.cocktails.config.SwaggerConfiguration.api(SwaggerConfiguration.java:26)
+
+The following method did not exist:
+
+    'com.google.common.base.Predicate springfox.documentation.builders.RequestHandlerSelectors.basePackage(java.lang.String)'
+
+The calling method's class, com.example.cocktails.config.SwaggerConfiguration, was loaded from the following location:
+
+    file:/E:/cocktails/build/classes/java/main/com/example/cocktails/config/SwaggerConfiguration.class
+
+The called method's class, springfox.documentation.builders.RequestHandlerSelectors, is available from the following locations:
+
+    jar:file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/io.springfox/springfox-core/3.0.0/7c3367ce577c8acd9bf64c74488c9269253516c9/springfox-core-3.0.0.jar!/springfox/documentation/builders/RequestHandlerSelectors.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    springfox.documentation.builders.RequestHandlerSelectors: file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/io.springfox/springfox-core/3.0.0/7c3367ce577c8acd9bf64c74488c9269253516c9/springfox-core-3.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes com.example.cocktails.config.SwaggerConfiguration and springfox.documentation.builders.RequestHandlerSelectors
+
+2024-04-29 02:00:21,315 ERROR - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    com.example.cocktails.config.SwaggerConfiguration.api(SwaggerConfiguration.java:26)
+
+The following method did not exist:
+
+    'com.google.common.base.Predicate springfox.documentation.builders.RequestHandlerSelectors.basePackage(java.lang.String)'
+
+The calling method's class, com.example.cocktails.config.SwaggerConfiguration, was loaded from the following location:
+
+    file:/E:/cocktails/build/classes/java/main/com/example/cocktails/config/SwaggerConfiguration.class
+
+The called method's class, springfox.documentation.builders.RequestHandlerSelectors, is available from the following locations:
+
+    jar:file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/io.springfox/springfox-core/3.0.0/7c3367ce577c8acd9bf64c74488c9269253516c9/springfox-core-3.0.0.jar!/springfox/documentation/builders/RequestHandlerSelectors.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    springfox.documentation.builders.RequestHandlerSelectors: file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/io.springfox/springfox-core/3.0.0/7c3367ce577c8acd9bf64c74488c9269253516c9/springfox-core-3.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes com.example.cocktails.config.SwaggerConfiguration and springfox.documentation.builders.RequestHandlerSelectors
+

@@ -1,96 +1,106 @@
 package com.example.cocktails.entity;
 
-import jakarta.persistence.*;
 import com.fasterxml.jackson.databind.JsonNode;
-
-import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
 public class Cocktail {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
-    private String tag;
-    private String category;
-    private String instruction;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+  private String name;
+  private String tag;
+  private String category;
+  private String instruction;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "cocktail")
-    private List<Image> imageList = new ArrayList<>();
+  @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+      CascadeType.REMOVE}, mappedBy = "cocktail")
+  private List<Image> imageList = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "COCKTAIL_INGREDIENT_MAPPING",
-            joinColumns = @JoinColumn(name = "cocktailId"),
-            inverseJoinColumns = @JoinColumn(name = "ingredientId"))
-    private List<Ingredient> ingredientList = new ArrayList<>();
+  @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JoinTable(name = "COCKTAIL_INGREDIENT_MAPPING",
+      joinColumns = @JoinColumn(name = "cocktailId"),
+      inverseJoinColumns = @JoinColumn(name = "ingredientId"))
+  private List<Ingredient> ingredientList = new ArrayList<>();
 
-    public Cocktail() {
-        // No initialization logic needed for this constructor
-    }
+  public Cocktail() {
+    // No initialization logic needed for this constructor
+  }
 
-    public Cocktail(JsonNode jsonNode) {
-        this.name = jsonNode.get("strDrink").asText();
-        this.tag = jsonNode.get("strTags").asText();
-        this.category = jsonNode.get("strAlcoholic").asText();
-        this.instruction = jsonNode.get("strInstructions").asText();
-    }
+  public Cocktail(JsonNode jsonNode) {
+    this.name = jsonNode.get("strDrink").asText();
+    this.tag = jsonNode.get("strTags").asText();
+    this.category = jsonNode.get("strAlcoholic").asText();
+    this.instruction = jsonNode.get("strInstructions").asText();
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getTag() {
-        return tag;
-    }
+  public String getTag() {
+    return tag;
+  }
 
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
 
-    public String getCategory() {
-        return category;
-    }
+  public String getCategory() {
+    return category;
+  }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
-    public String getInstruction() {
-        return instruction;
-    }
+  public String getInstruction() {
+    return instruction;
+  }
 
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
-    }
+  public void setInstruction(String instruction) {
+    this.instruction = instruction;
+  }
 
-    public List<Image> getImageList() {
-        return imageList;
-    }
+  public List<Image> getImageList() {
+    return imageList;
+  }
 
-    public void setImageList(List<Image> imageList) {
-        this.imageList = imageList;
-    }
+  public void setImageList(List<Image> imageList) {
+    this.imageList = imageList;
+  }
 
-    public List<Ingredient> getIngredientList() {
-        return ingredientList;
-    }
+  public List<Ingredient> getIngredientList() {
+    return ingredientList;
+  }
 
-    public void setIngredientList(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
-    }
+  public void setIngredientList(List<Ingredient> ingredientList) {
+    this.ingredientList = ingredientList;
+  }
 }

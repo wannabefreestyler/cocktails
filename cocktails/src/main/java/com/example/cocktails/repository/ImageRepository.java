@@ -4,5 +4,5 @@ import com.example.cocktails.entity.Image;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ImageRepository extends CrudRepository<Image, Long> {
-    Image findByPicture(String picture);
+  Image findByPicture(String picture);
 }
