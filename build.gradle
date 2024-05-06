@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id "org.sonarqube" version "4.4.1.3373"
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testImplementation 'org.mockito:mockito-core:3.12.4'
+    testImplementation "junit:junit:4.12"
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //Swagger dependencies
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    implementation 'io.swagger.core.v3:swagger-annotations:2.2.20'
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+
+    implementation 'mysql:mysql-connector-java:8.0.30'
+    implementation 'org.projectlombok:lombok:1.18.30'
+    implementation 'joda-time:joda-time:2.2'
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.json:json:20240303'
+
+
+}
+
+test {
+    useJUnitPlatform()
+    jacoco {
+        enabled = true
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "wannabefreestyler_cocktails"
+        property "sonar.organization", "wannabefreestyler"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.token", "5c45b74c1df83cff325427a4a440d32a11e5fbdf"
+    }
+}
