@@ -131,12 +131,11 @@ public class CocktailService {
     cocktailRepository.save(cocktailEntity);
   }
 
-  public void deleteCocktail(Long id) throws CocktailNotFoundException {
-    Cocktail cocktail = cocktailRepository.findById(id).orElse(null);
-    if (cocktail != null) {
-      cocktailRepository.deleteById(id);
-    } else {
-      throw new CocktailNotFoundException(COCKTAIL_NOT_FOUND_STRING);
+  public void deleteCocktailByName(String name) throws CocktailNotFoundException {
+    Cocktail cocktail = cocktailRepository.findByName(name);
+    if (cocktail == null) {
+      throw new CocktailNotFoundException("Коктейль не найден");
     }
+    cocktailRepository.delete(cocktail);
   }
 }

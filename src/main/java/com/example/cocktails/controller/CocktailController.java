@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +37,7 @@ public class CocktailController {
   }
 
   @PostMapping
+  @CrossOrigin
   public ResponseEntity<?> addCocktail(@RequestBody Cocktail cocktail) {
     log.info("cocktail post запрос был вызван");
     try {
@@ -50,6 +52,7 @@ public class CocktailController {
   }
 
   @PostMapping("/bulk")
+  @CrossOrigin
   public ResponseEntity<List<String>> addCocktailsBulk(@RequestBody List<Cocktail> cocktails) {
     log.info("cocktail bulk post запрос был вызван");
     try {
@@ -65,6 +68,7 @@ public class CocktailController {
   }
 
   @GetMapping
+  @CrossOrigin
   public ResponseEntity<?> getCocktail(@RequestParam(required = false) String name) {
     log.info("cocktail get запрос был вызван");
     try {
@@ -78,6 +82,7 @@ public class CocktailController {
   }
 
   @GetMapping("/with-ingredient")
+  @CrossOrigin
   public ResponseEntity<?> getCocktailsWithIngredient(@RequestParam Long ingredientId) {
     log.info("cocktail get /with-ingredient запрос был вызван");
     try {
@@ -92,6 +97,7 @@ public class CocktailController {
   }
 
   @GetMapping("/name")
+  @CrossOrigin
   public ResponseEntity<?> getCocktailByName(@RequestParam String name) {
     log.info("cocktail get /name запрос был вызван");
     try {
@@ -106,6 +112,7 @@ public class CocktailController {
   }
 
   @PutMapping
+  @CrossOrigin
   public ResponseEntity<?> updateCocktail(@RequestParam String name,
                                           @RequestBody Cocktail updatedCocktail) {
     log.info("cocktail put запрос был вызван");
@@ -121,10 +128,11 @@ public class CocktailController {
   }
 
   @DeleteMapping
-  public ResponseEntity<?> deleteCocktail(@RequestParam Long id) {
+  @CrossOrigin
+  public ResponseEntity<?> deleteCocktail(@RequestParam String name) {
     log.info("cocktail delete запрос был вызван");
     try {
-      cocktailService.deleteCocktail(id);
+      cocktailService.deleteCocktailByName(name);
       log.info("Коктейль был успешно удален");
       return ResponseEntity.ok("Коктейль удалён");
     } catch (CocktailNotFoundException e) {

@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,7 @@ public class IngredientController {
   private final Logger log = LoggerFactory.getLogger(IngredientController.class);
 
   @PostMapping
+  @CrossOrigin
   public ResponseEntity<?> addIngredient(@RequestParam Long cocktailId,
                                          @RequestBody Ingredient ingredient) {
     log.info("ingredient post запрос был вызван");
@@ -49,6 +51,7 @@ public class IngredientController {
   }
 
   @GetMapping
+  @CrossOrigin
   public ResponseEntity<?> getIngredient(@RequestParam Long id) {
     log.info("ingredient get запрос был вызван");
     try {
@@ -62,6 +65,7 @@ public class IngredientController {
   }
 
   @PutMapping
+  @CrossOrigin
   public ResponseEntity<?> updateIngredient(@RequestParam Long id,
                                             @RequestBody Ingredient updatedIngredient) {
     log.info("ingredient put запрос был вызван");
@@ -77,6 +81,7 @@ public class IngredientController {
   }
 
   @DeleteMapping
+  @CrossOrigin
   public ResponseEntity<?> deleteIngredient(@RequestParam Long cocktailId,
                                             @RequestParam Long ingredientId) {
     log.info("ingredient delete запрос был вызван");
